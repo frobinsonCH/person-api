@@ -1,0 +1,30 @@
+{
+  "Person":{
+    "title": "Mr",
+    "forename": "Dave",
+    "surname": "Johnson",
+    "formerName": "Bogdan",
+    "country": "Wales",
+    "nationality": "Welsh",
+    "dob": {
+      "year": 2017,
+      "month": "AUGUST",
+      "dayOfMonth": 1,
+      "dayOfWeek": "TUESDAY",
+      "dayOfYear": 213,
+      "monthValue": 8
+    },
+    "occupation": "Doctor",
+    "address": {
+      "houseNum": "5",
+      "street": "Json Street",
+      "town": "Cardiff",
+      "county": "South Glamorgan",
+      "postCode": "CF12 4TY",
+      "country": "wales"
+    }
+  }
+
+
+
+}
