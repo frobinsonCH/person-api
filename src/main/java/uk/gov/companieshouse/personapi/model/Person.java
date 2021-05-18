@@ -43,12 +43,9 @@ public class Person {
     }
 
     public void setForename(String forename) {
-        if (forename.matches(".*\\d.*")){
-           throw new RuntimeException();
-        }
-        else {
+
             this.forename = forename;
-        }
+
     }
 
     public String getSurname() {
