@@ -1,15 +1,5 @@
 package uk.gov.companieshouse.personapi.controller;
 
-import static org.hamcrest.Matchers.any;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.doNothing;
-import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,44 +7,28 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import uk.gov.companieshouse.personapi.TestParent;
 import uk.gov.companieshouse.personapi.exception.PersonNotFoundException;
-import uk.gov.companieshouse.personapi.model.Address;
-import uk.gov.companieshouse.personapi.model.Person;
 import uk.gov.companieshouse.personapi.service.PersonService;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import static org.hamcrest.Matchers.any;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = PersonController.class)
-class PersonControllerTest {
-    private static final String PERSON_ID = "abcd";
-    private static final String ERROR_MESSAGE = "Test successful";
+class  PersonControllerTest extends TestParent {
+
 
     @Autowired
     private MockMvc mvc;
     @MockBean
     private PersonService personService;
 
-    private Person person;
-    private Person personTwo;
-    private List<Person> people;
-
-    @BeforeEach
-    void setUpTests(){
-        Address address = new Address("10", "Downing Street",
-                "London", "Greater London", "LN10 6RS", "England");
-        person = new Person("Mr", "Joris", "Bohnson", "Boris", "England",
-                "British", LocalDate.of(1965, 12, 6), "MinePrinister", address);
-        personTwo = new Person("Mr", "Gloris", "Glonson", "Jaris", "Wales",
-                "British", LocalDate.of(1956, 1, 6), "Prime Mincer", address);
-        person.setId(PERSON_ID);
-        personTwo.setId("Blah Blah Blah");
-        people = new ArrayList<>();
-        people.add(person);
-        people.add(personTwo);
-    }
 
     @Test
     void testGetPersonByIdSuccessful() throws Exception {
