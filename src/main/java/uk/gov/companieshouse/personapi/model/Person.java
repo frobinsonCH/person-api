@@ -16,6 +16,7 @@ public class Person {
     private Address address;
     @Id
     private String id;
+    public Person(){}
     public Person (String title, String forename, String surname, String formerName,
                    String country,String nationality, LocalDate dob, String occupation,Address address){
         this.title= title;

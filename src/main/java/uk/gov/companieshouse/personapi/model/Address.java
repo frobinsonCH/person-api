@@ -6,6 +6,7 @@ public class Address {
     private  String county;
     private String postcode;
     private String country;
+    public Address(){}
 
     public Address( String houseNum, String street, String town, String county, String postcode, String country){
         this.houseNum = houseNum;
