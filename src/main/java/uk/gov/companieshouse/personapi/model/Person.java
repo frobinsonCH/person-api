@@ -114,6 +114,22 @@ public class Person {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if(obj == null){
+            return false;
+        }
+
+        if(this.getClass()!=obj.getClass()){
+            return false;
+        }
+        final Person other = (Person) obj;
+        if(!this.getId().equals(other.getId())){
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "model.Person: " +
                 "title='" + title + "'" +

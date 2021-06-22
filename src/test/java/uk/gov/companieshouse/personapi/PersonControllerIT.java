@@ -28,7 +28,6 @@ public class PersonControllerIT extends TestParent{
 
     @Test
     void testAddPersonSuccessful(){
-        person.setId(null);
         var expectedPerson = person;
         var expectedStatusCode = HttpStatus.CREATED;
 
@@ -37,7 +36,7 @@ public class PersonControllerIT extends TestParent{
                 restTemplate.exchange(URL+port+"/add-person", HttpMethod.POST, entity, Person.class);
         var actualPerson = response.getBody();
         var actualStatusCode = response.getStatusCode();
-        assertThat(actualPerson.getSurname(), is(expectedPerson.getSurname()));
+        assertThat(actualPerson, is(expectedPerson));
         assertThat(actualStatusCode, is(expectedStatusCode));
 
     }
